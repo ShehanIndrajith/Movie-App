@@ -39,6 +39,7 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/fragmentLayout"
         android:layout_width="match_parent"
         android:layout_height="560dp"></FrameLayout>
 
