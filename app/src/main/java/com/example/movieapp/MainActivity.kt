@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         val searchBtn: ImageButton = findViewById(R.id.search_button)
         val saveBtn: ImageButton = findViewById(R.id.saveitem_button)
         val chatBtn: ImageButton = findViewById(R.id.msg_button)
-        val PremiumBtn: ImageButton = findViewById(R.id.premium_button)
+        val premiumBtn: ImageButton = findViewById(R.id.premium_button)
+
         homeBtn.setOnClickListener {
             animateButton(homeBtn)
             if (!isHomeActive) {
@@ -41,72 +43,68 @@ class MainActivity : AppCompatActivity() {
                 searchBtn.setImageResource(R.drawable.search)
                 saveBtn.setImageResource(R.drawable.bookmark)
                 chatBtn.setImageResource(R.drawable.chat)
-                PremiumBtn.setImageResource(R.drawable.crown)
+                premiumBtn.setImageResource(R.drawable.crown)
                 isHomeActive = true
+                loadFragment(HomeFragment())
             } else {
-                //homeBtn.setImageResource(R.drawable.home1) // Ensure this drawable exists
                 isHomeActive = false
             }
         }
 
-        searchBtn.setOnClickListener{
+        searchBtn.setOnClickListener {
             animateButton(searchBtn)
-            if(!isSearchActive){
+            if (!isSearchActive) {
                 searchBtn.setImageResource(R.drawable.search1)
                 homeBtn.setImageResource(R.drawable.home1)
                 saveBtn.setImageResource(R.drawable.bookmark)
                 chatBtn.setImageResource(R.drawable.chat)
-                PremiumBtn.setImageResource(R.drawable.crown)
+                premiumBtn.setImageResource(R.drawable.crown)
                 isSearchActive = true
             } else {
-                //searchBtn.setImageResource(R.drawable.search)
                 isSearchActive = false
             }
         }
 
-        saveBtn.setOnClickListener{
+        saveBtn.setOnClickListener {
             animateButton(saveBtn)
-            if(!isSaveActive) {
+            if (!isSaveActive) {
                 saveBtn.setImageResource(R.drawable.bookmark__3_)
                 searchBtn.setImageResource(R.drawable.search)
                 homeBtn.setImageResource(R.drawable.home1)
                 chatBtn.setImageResource(R.drawable.chat)
-                PremiumBtn.setImageResource(R.drawable.crown)
+                premiumBtn.setImageResource(R.drawable.crown)
                 isSaveActive = true
-            }else{
+            } else {
                 isSaveActive = false
             }
-
         }
 
-        chatBtn.setOnClickListener{
+        chatBtn.setOnClickListener {
             animateButton(chatBtn)
-            if(!isChatActive) {
+            if (!isChatActive) {
                 chatBtn.setImageResource(R.drawable.comments)
                 saveBtn.setImageResource(R.drawable.bookmark)
                 searchBtn.setImageResource(R.drawable.search)
                 homeBtn.setImageResource(R.drawable.home1)
-                PremiumBtn.setImageResource(R.drawable.crown)
+                premiumBtn.setImageResource(R.drawable.crown)
                 isChatActive = true
-            }else{
+            } else {
                 isChatActive = false
             }
-
         }
 
-        PremiumBtn.setOnClickListener{
-            animateButton(PremiumBtn)
-            if(!isPremiumActive) {
-                PremiumBtn.setImageResource(R.drawable.crown1)
+        premiumBtn.setOnClickListener {
+            animateButton(premiumBtn)
+            if (!isPremiumActive) {
+                premiumBtn.setImageResource(R.drawable.crown1)
                 chatBtn.setImageResource(R.drawable.chat)
                 saveBtn.setImageResource(R.drawable.bookmark)
                 searchBtn.setImageResource(R.drawable.search)
                 homeBtn.setImageResource(R.drawable.home1)
                 isPremiumActive = true
-            }else{
+            } else {
                 isPremiumActive = false
             }
-
         }
     }
 
@@ -119,5 +117,12 @@ class MainActivity : AppCompatActivity() {
         val animatorSet = AnimatorSet()
         animatorSet.playTogether(scaleX, scaleY)
         animatorSet.start()
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentLayout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
