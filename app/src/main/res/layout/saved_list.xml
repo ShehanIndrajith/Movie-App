@@ -76,8 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/movie_item_background">
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:layout_width="50dp"
@@ -126,8 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/movie_item_background">
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:layout_width="50dp"
@@ -176,8 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/movie_item_background">
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:layout_width="50dp"
@@ -228,8 +225,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:gravity="center"
-                android:background="@drawable/add_more_background">
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="30dp"
