@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private var isSaveActive = false
     private var isChatActive = false
     private var isPremiumActive = false
+    private var isProfileActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         val saveBtn: ImageButton = findViewById(R.id.saveitem_button)
         val chatBtn: ImageButton = findViewById(R.id.msg_button)
         val premiumBtn: ImageButton = findViewById(R.id.premium_button)
+        val profileBtn: ImageView = findViewById(R.id.profilebtn)
 
         homeBtn.setOnClickListener {
             animateButton(homeBtn)
@@ -60,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 chatBtn.setImageResource(R.drawable.chat)
                 premiumBtn.setImageResource(R.drawable.crown)
                 isSearchActive = true
+                loadFragment(SearchMovieFragment())
             } else {
                 isSearchActive = false
             }
@@ -74,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                 chatBtn.setImageResource(R.drawable.chat)
                 premiumBtn.setImageResource(R.drawable.crown)
                 isSaveActive = true
+                loadFragment(SavedListFragment())  // Load SavedListFragment
             } else {
                 isSaveActive = false
             }
@@ -88,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                 homeBtn.setImageResource(R.drawable.home1)
                 premiumBtn.setImageResource(R.drawable.crown)
                 isChatActive = true
+                loadFragment(ChatFragment())// Load ChatFragment or handle chat logic here
             } else {
                 isChatActive = false
             }
@@ -102,8 +108,24 @@ class MainActivity : AppCompatActivity() {
                 searchBtn.setImageResource(R.drawable.search)
                 homeBtn.setImageResource(R.drawable.home1)
                 isPremiumActive = true
+                loadFragment(PremiumFragment())// Handle premium logic or load premium fragment here
             } else {
                 isPremiumActive = false
+            }
+        }
+
+        profileBtn.setOnClickListener {
+            animateButton(profileBtn)
+            if (!isProfileActive) {
+                premiumBtn.setImageResource(R.drawable.crown1)
+                chatBtn.setImageResource(R.drawable.chat)
+                saveBtn.setImageResource(R.drawable.bookmark)
+                searchBtn.setImageResource(R.drawable.search)
+                homeBtn.setImageResource(R.drawable.home1)
+                isProfileActive = true
+                loadFragment(ProfileFragment())// Handle premium logic or load premium fragment here
+            } else {
+                isProfileActive = false
             }
         }
     }

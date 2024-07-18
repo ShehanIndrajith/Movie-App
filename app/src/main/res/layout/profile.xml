@@ -6,41 +6,9 @@
     android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".MainActivity">
 
     <!-- Header Section -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:paddingTop="25dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="25dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/white"
-            android:id="@+id/profile_image"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Profile"
-            android:textSize="30sp"
-            android:layout_marginLeft="75dp"
-            android:layout_gravity="center_vertical"
-            android:id="@+id/header_text"/>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="275dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:id="@+id/edit_icon"/>
-    </FrameLayout>
 
     <!-- Profile Info Section -->
     <LinearLayout
@@ -219,53 +187,6 @@
         android:layout_height="70dp"
         android:paddingLeft="15dp"
         android:paddingTop="10dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <ImageButton
-                android:id="@+id/homebtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/black"
-                android:src="@drawable/home1"
-                android:contentDescription="Home"/>
-
-            <ImageButton
-                android:id="@+id/search_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/black"
-                android:layout_marginLeft="70dp"
-                android:src="@drawable/search"
-                android:contentDescription="Search"/>
-
-            <ImageButton
-                android:id="@+id/saveitem_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/black"
-                android:layout_marginLeft="140dp"
-                android:src="@drawable/bookmark"
-                android:contentDescription="Save List"/>
-
-            <ImageButton
-                android:id="@+id/msg_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/black"
-                android:layout_marginLeft="210dp"
-                android:src="@drawable/chat"
-                android:contentDescription="Chat"/>
-
-            <ImageButton
-                android:id="@+id/premium_button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@color/black"
-                android:layout_marginLeft="280dp"
-                android:src="@drawable/crown"
-                android:contentDescription="Premium"/>
-        </RelativeLayout>
+       
     </FrameLayout>
 </LinearLayout>
