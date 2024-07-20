@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         val premiumBtn: ImageButton = findViewById(R.id.premium_button)
         val profileBtn: ImageView = findViewById(R.id.profilebtn)
 
+        homeBtn.setImageResource(R.drawable.home)
+        isHomeActive = true
+        loadFragment(HomeFragment())
+
         homeBtn.setOnClickListener {
             animateButton(homeBtn)
             if (!isHomeActive) {

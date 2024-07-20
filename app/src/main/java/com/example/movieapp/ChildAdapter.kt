@@ -1,6 +1,7 @@
 package com.example.movieapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,15 @@ class ChildAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.ivChildImage.setImageResource(childModelClassList[position].image)
+        val childItem = childModelClassList[position]
+        holder.ivChildImage.setImageResource(childItem.image)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, MovieDescriptionActivity::class.java)
+            intent.putExtra("imageResId", childItem.image)
+            // Add more data as needed
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -29,4 +38,3 @@ class ChildAdapter(
         val ivChildImage: ImageView = itemView.findViewById(R.id.iv_child_item)
     }
 }
-
