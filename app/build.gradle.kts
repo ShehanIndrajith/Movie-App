@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,6 +48,7 @@ dependencies {
     implementation (libs.androidx.recyclerview)
     implementation (libs.androidx.cardview)
     implementation ("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.androidx.legacy.support.v4)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
      testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
